@@ -1272,8 +1272,7 @@
 
 <script>
 // ── CONFIG ──────────────────────────────────────────────────────────────────
-const API_KEY = ""; // Key lives server-side in Vercel env vars
-const SHEETS_URL = "https://script.google.com/macros/s/AKfycbw6iBvnvfe4-BchK8_aGltLIBrx0LOLUEe80JrwLr9H6qFJ5bKY_nuIlAsAXZZ-JjL7/exec";
+const API_KEY = ""; // Set via Vercel environment variable ANTHROPIC_API_KEY
 
 // ── SESSION ─────────────────────────────────────────────────────────────────
 const sessionId = crypto.randomUUID ? crypto.randomUUID() : Math.random().toString(36).slice(2) + Date.now();
@@ -1395,7 +1394,7 @@ function gaEvent(name, params) {
 
 // ── SHEETS HELPER ────────────────────────────────────────────────────────────
 function sendToSheets(urgency, dropoff) {
-  const payload = {
+  const data = {
     session_id: sessionId,
     q1:  answers[1]  || "",
     q2:  answers[2]  || "",
@@ -1411,10 +1410,17 @@ function sendToSheets(urgency, dropoff) {
     urgency_level: urgency || "",
     drop_off_question: dropoff || ""
   };
-  try {
-    const blob = new Blob([JSON.stringify(payload)], { type: "application/json" });
-    navigator.sendBeacon(SHEETS_URL, blob);
-  } catch (_) {}
+
+  const SHEETS_URL = "https://script.google.com/macros/s/AKfycbx6cblSENPxWaQrbPFbshkF0Lp3vXH4a3YvSf_FGE4B96RB4Cbm8H4Cz7tB7latyd89/exec";
+
+  const formData = new FormData();
+  formData.append('data', JSON.stringify(data));
+
+  fetch(SHEETS_URL, {
+    method: 'POST',
+    mode: 'no-cors',
+    body: formData
+  }).catch(err => console.log('Sheets error:', err));
 }
 
 // ── PAGE CLOSE BEACON ────────────────────────────────────────────────────────
@@ -1689,6 +1695,8 @@ function showLoading() {
 
 // ── CLAUDE API ───────────────────────────────────────────────────────────────
 async function callClaudeAPI() {
+  if (!API_KEY) throw new Error("No API key");
+
   const prompt = `Health check responses:
 Q1 (Symptoms): ${answers[1] || ""}
 Q2 (Severity): ${answers[2] || ""}
@@ -1702,10 +1710,13 @@ Q9 (Usual behavior): ${answers[9] || ""}
 Q10 (Action taken): ${answers[10] || ""}
 Q11 (Barrier): ${answers[11] || ""}`;
 
-  const response = await fetch("/api/claude", {
+  const response = await fetch("https://api.anthropic.com/v1/messages", {
     method: "POST",
     headers: {
-      "Content-Type": "application/json"
+      "Content-Type": "application/json",
+      "x-api-key": API_KEY,
+      "anthropic-version": "2023-06-01",
+      "anthropic-dangerous-direct-browser-access": "true"
     },
     body: JSON.stringify({
       model: "claude-sonnet-4-20250514",
@@ -2022,10 +2033,15 @@ async function sendCopilotMessage(text) {
   let replyText = "";
 
   try {
-    const res = await fetch("/api/claude", {
+    if (!API_KEY) throw new Error("no key");
+
+    const res = await fetch("https://api.anthropic.com/v1/messages", {
       method: "POST",
       headers: {
-        "Content-Type": "application/json"
+        "Content-Type": "application/json",
+        "x-api-key": API_KEY,
+        "anthropic-version": "2023-06-01",
+        "anthropic-dangerous-direct-browser-access": "true"
       },
       body: JSON.stringify({
         model: "claude-sonnet-4-20250514",
