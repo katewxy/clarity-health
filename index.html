@@ -1272,7 +1272,7 @@
 
 <script>
 // ── CONFIG ──────────────────────────────────────────────────────────────────
-const API_KEY = ""; // Fill in your Anthropic API key here
+const API_KEY = ""; // Key lives server-side in Vercel env vars
 const SHEETS_URL = "https://script.google.com/macros/s/AKfycbw6iBvnvfe4-BchK8_aGltLIBrx0LOLUEe80JrwLr9H6qFJ5bKY_nuIlAsAXZZ-JjL7/exec";
 
 // ── SESSION ─────────────────────────────────────────────────────────────────
@@ -1689,8 +1689,6 @@ function showLoading() {
 
 // ── CLAUDE API ───────────────────────────────────────────────────────────────
 async function callClaudeAPI() {
-  if (!API_KEY) throw new Error("No API key");
-
   const prompt = `Health check responses:
 Q1 (Symptoms): ${answers[1] || ""}
 Q2 (Severity): ${answers[2] || ""}
@@ -1704,13 +1702,10 @@ Q9 (Usual behavior): ${answers[9] || ""}
 Q10 (Action taken): ${answers[10] || ""}
 Q11 (Barrier): ${answers[11] || ""}`;
 
-  const response = await fetch("https://api.anthropic.com/v1/messages", {
+  const response = await fetch("/api/claude", {
     method: "POST",
     headers: {
-      "Content-Type": "application/json",
-      "x-api-key": API_KEY,
-      "anthropic-version": "2023-06-01",
-      "anthropic-dangerous-direct-browser-access": "true"
+      "Content-Type": "application/json"
     },
     body: JSON.stringify({
       model: "claude-sonnet-4-20250514",
@@ -2027,15 +2022,10 @@ async function sendCopilotMessage(text) {
   let replyText = "";
 
   try {
-    if (!API_KEY) throw new Error("no key");
-
-    const res = await fetch("https://api.anthropic.com/v1/messages", {
+    const res = await fetch("/api/claude", {
       method: "POST",
       headers: {
-        "Content-Type": "application/json",
-        "x-api-key": API_KEY,
-        "anthropic-version": "2023-06-01",
-        "anthropic-dangerous-direct-browser-access": "true"
+        "Content-Type": "application/json"
       },
       body: JSON.stringify({
         model: "claude-sonnet-4-20250514",
