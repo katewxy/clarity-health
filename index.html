@@ -1,0 +1,2391 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-NV2LE3YK2N"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-NV2LE3YK2N');
+  </script>
+
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ClarityHealth — Health guidance, not diagnosis</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --green: #2d9b7f;
+      --green-light: #e8f5f1;
+      --green-hover: #24836b;
+      --bg: #f5f5f0;
+      --white: #ffffff;
+      --text: #1a1a1a;
+      --text-muted: #6b7280;
+      --border: #e5e7eb;
+      --shadow: 0 1px 3px rgba(0,0,0,0.08), 0 1px 2px rgba(0,0,0,0.04);
+      --radius: 12px;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* ── NAV ── */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      background: var(--white);
+      box-shadow: 0 1px 0 var(--border);
+      height: 60px;
+      display: flex;
+      align-items: center;
+      padding: 0 24px;
+    }
+
+    .nav-inner {
+      width: 100%; max-width: 1100px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .logo {
+      font-size: 20px;
+      font-weight: 700;
+      text-decoration: none;
+      letter-spacing: -0.3px;
+    }
+    .logo span:first-child { color: var(--text); }
+    .logo span:last-child  { color: var(--green); }
+
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      cursor: pointer;
+      padding: 4px;
+      background: none;
+      border: none;
+    }
+    .hamburger span {
+      display: block;
+      width: 22px; height: 2px;
+      background: var(--text);
+      border-radius: 2px;
+      transition: all .2s;
+    }
+
+    @media (max-width: 640px) {
+      .hamburger { display: flex; }
+    }
+
+    /* ── SECTIONS ── */
+    section { padding: 80px 24px; }
+    .container { max-width: 1100px; margin: 0 auto; }
+
+    /* ── HERO ── */
+    .hero {
+      background: var(--bg);
+      padding-top: 120px;
+      padding-bottom: 80px;
+      text-align: center;
+    }
+
+    .pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: var(--green-light);
+      color: var(--green);
+      font-size: 13px;
+      font-weight: 600;
+      padding: 6px 14px;
+      border-radius: 100px;
+      margin-bottom: 24px;
+    }
+    .pill::before {
+      content: '';
+      display: inline-block;
+      width: 8px; height: 8px;
+      background: var(--green);
+      border-radius: 50%;
+    }
+
+    .hero h1 {
+      font-size: clamp(32px, 6vw, 58px);
+      font-weight: 800;
+      line-height: 1.15;
+      letter-spacing: -1px;
+      margin-bottom: 20px;
+      max-width: 700px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .hero p {
+      font-size: clamp(16px, 2.5vw, 20px);
+      color: var(--text-muted);
+      max-width: 520px;
+      margin: 0 auto 36px;
+    }
+
+    .hero-btns {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      max-width: 320px;
+      margin: 0 auto;
+    }
+
+    /* ── BUTTONS ── */
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      padding: 14px 24px;
+      border-radius: 10px;
+      font-family: inherit;
+      font-size: 15px;
+      font-weight: 600;
+      cursor: pointer;
+      border: none;
+      transition: all .18s;
+      text-decoration: none;
+    }
+    .btn-primary {
+      background: var(--green);
+      color: white;
+    }
+    .btn-primary:hover { background: var(--green-hover); transform: translateY(-1px); box-shadow: 0 4px 12px rgba(45,155,127,.35); }
+    .btn-secondary {
+      background: var(--green-light);
+      color: var(--green);
+    }
+    .btn-secondary:hover { background: #d4ece6; }
+    .btn-outline {
+      background: transparent;
+      color: var(--green);
+      border: 2px solid var(--green);
+    }
+    .btn-outline:hover { background: var(--green-light); }
+    .btn-ghost {
+      background: #f3f4f6;
+      color: #9ca3af;
+      cursor: default;
+    }
+    .btn-full { width: 100%; }
+
+    /* ── PAIN POINTS ── */
+    .pain { background: var(--bg); }
+
+    .pain-header { text-align: center; max-width: 780px; margin: 0 auto 48px; }
+    .pain-header h2 {
+      font-size: clamp(22px, 3.5vw, 32px);
+      font-weight: 700;
+      line-height: 1.3;
+      margin-bottom: 16px;
+    }
+    .pain-header p { color: var(--text-muted); font-size: 17px; }
+
+    .cards-3 {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 20px;
+    }
+
+    .card {
+      background: var(--white);
+      border-radius: var(--radius);
+      padding: 28px 24px;
+      box-shadow: var(--shadow);
+    }
+
+    .card-icon { font-size: 28px; margin-bottom: 12px; }
+    .card h3 { font-size: 17px; font-weight: 700; margin-bottom: 8px; }
+    .card p  { color: var(--text-muted); font-size: 14px; line-height: 1.6; }
+
+    /* ── HOW IT WORKS ── */
+    .how { background: var(--white); }
+
+    .section-header { text-align: center; margin-bottom: 48px; }
+    .section-header h2 {
+      font-size: clamp(24px, 3.5vw, 36px);
+      font-weight: 800;
+      letter-spacing: -.5px;
+      margin-bottom: 12px;
+    }
+    .section-header p { color: var(--text-muted); font-size: 17px; }
+
+    .steps {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 24px;
+    }
+
+    .step {
+      background: var(--bg);
+      border-radius: var(--radius);
+      padding: 28px 24px;
+    }
+    .step-num {
+      font-size: 42px;
+      font-weight: 800;
+      color: #e5e7eb;
+      line-height: 1;
+      margin-bottom: 12px;
+    }
+    .step-icon { font-size: 24px; margin-bottom: 8px; }
+    .step h3 { font-size: 16px; font-weight: 700; margin-bottom: 6px; }
+    .step p  { color: var(--text-muted); font-size: 14px; }
+
+    /* ── EXPLORE ── */
+    .explore { background: var(--bg); }
+
+    .explore-cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 20px;
+    }
+
+    .explore-card {
+      background: var(--white);
+      border-radius: var(--radius);
+      padding: 32px 24px;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      box-shadow: var(--shadow);
+    }
+    .explore-card .card-icon { margin-bottom: 0; }
+    .explore-card h3 { font-size: 18px; font-weight: 700; }
+    .explore-card p  { color: var(--text-muted); font-size: 14px; flex: 1; }
+
+    /* ── CTA ── */
+    .cta { background: var(--white); text-align: center; }
+    .cta h2 {
+      font-size: clamp(26px, 4vw, 40px);
+      font-weight: 800;
+      margin-bottom: 14px;
+      letter-spacing: -.5px;
+    }
+    .cta p { color: var(--text-muted); font-size: 17px; margin-bottom: 32px; }
+    .cta .btn { max-width: 380px; }
+
+    /* ── QUIZ OVERLAY ── */
+    #quiz-overlay {
+      position: fixed;
+      inset: 0;
+      z-index: 1000;
+      background: var(--white);
+      display: none;
+      flex-direction: column;
+      overflow: hidden;
+    }
+    #quiz-overlay.active { display: flex; }
+
+    .quiz-top {
+      padding: 16px 20px 0;
+      flex-shrink: 0;
+    }
+
+    .quiz-nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 12px;
+    }
+
+    .quiz-back, .quiz-close {
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 8px;
+      border-radius: 8px;
+      color: var(--text-muted);
+      font-size: 20px;
+      transition: background .15s;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .quiz-back:hover, .quiz-close:hover { background: var(--bg); color: var(--text); }
+    .quiz-back:disabled { opacity: 0.3; cursor: default; }
+    .quiz-back:disabled:hover { background: none; }
+
+    .quiz-counter {
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--text-muted);
+    }
+
+    .progress-bar {
+      height: 4px;
+      background: #e5e7eb;
+      border-radius: 4px;
+      overflow: hidden;
+    }
+    .progress-fill {
+      height: 100%;
+      background: var(--green);
+      border-radius: 4px;
+      transition: width .4s cubic-bezier(.4,0,.2,1);
+    }
+
+    .quiz-body {
+      flex: 1;
+      overflow: hidden;
+      position: relative;
+    }
+
+    .question-slide {
+      position: absolute;
+      inset: 0;
+      padding: 24px 20px;
+      overflow-y: auto;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      transition: transform .3s cubic-bezier(.4,0,.2,1), opacity .3s;
+    }
+    .question-slide.enter-from-right { transform: translateX(100%); opacity: 0; }
+    .question-slide.enter-from-left  { transform: translateX(-100%); opacity: 0; }
+    .question-slide.active { transform: translateX(0); opacity: 1; }
+    .question-slide.exit-to-left  { transform: translateX(-100%); opacity: 0; }
+    .question-slide.exit-to-right { transform: translateX(100%); opacity: 0; }
+
+    .question-type-badge {
+      display: inline-flex;
+      align-items: center;
+      padding: 3px 10px;
+      background: var(--green-light);
+      color: var(--green);
+      border-radius: 6px;
+      font-size: 11px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: .5px;
+      width: fit-content;
+    }
+
+    .question-text {
+      font-size: clamp(18px, 3vw, 22px);
+      font-weight: 700;
+      line-height: 1.35;
+      color: var(--text);
+    }
+
+    .options-list {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .option-card {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      padding: 14px 16px;
+      background: var(--white);
+      border: 2px solid var(--border);
+      border-radius: 10px;
+      cursor: pointer;
+      transition: all .15s;
+      user-select: none;
+    }
+    .option-card:hover { border-color: var(--green); background: var(--green-light); }
+    .option-card.selected {
+      background: var(--green);
+      border-color: var(--green);
+      color: white;
+    }
+    .option-card.selected .option-badge {
+      background: rgba(255,255,255,.25);
+      border-color: rgba(255,255,255,.4);
+      color: white;
+    }
+
+    .option-badge {
+      flex-shrink: 0;
+      width: 28px; height: 28px;
+      border-radius: 6px;
+      border: 2px solid var(--green);
+      color: var(--green);
+      font-size: 12px;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .option-text { font-size: 15px; font-weight: 500; line-height: 1.4; }
+
+    .quiz-footer {
+      padding: 16px 20px;
+      flex-shrink: 0;
+      border-top: 1px solid var(--border);
+    }
+
+    /* ── LOADING ── */
+    #loading-screen {
+      display: none;
+      position: fixed;
+      inset: 0;
+      z-index: 1100;
+      background: var(--white);
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 24px;
+    }
+    #loading-screen.active { display: flex; }
+
+    .spinner {
+      width: 48px; height: 48px;
+      border: 3px solid var(--green-light);
+      border-top-color: var(--green);
+      border-radius: 50%;
+      animation: spin .8s linear infinite;
+    }
+    @keyframes spin { to { transform: rotate(360deg); } }
+
+    #loading-text {
+      font-size: 17px;
+      font-weight: 500;
+      color: var(--text-muted);
+      transition: opacity .3s;
+    }
+
+    /* ── RESULT ── */
+    #result-screen {
+      display: none;
+      position: fixed;
+      inset: 0;
+      z-index: 1050;
+      background: var(--bg);
+      overflow-y: auto;
+      padding: 24px 16px 40px;
+    }
+    #result-screen.active { display: block; }
+
+    .result-card {
+      background: var(--white);
+      border-radius: 16px;
+      max-width: 600px;
+      margin: 0 auto;
+      overflow: hidden;
+      box-shadow: 0 4px 24px rgba(0,0,0,.08);
+    }
+
+    .result-header {
+      padding: 28px 28px 20px;
+      border-bottom: 1px solid var(--border);
+    }
+    .result-header h2 {
+      font-size: 20px;
+      font-weight: 700;
+      margin-bottom: 12px;
+    }
+
+    .urgency-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 8px 16px;
+      border-radius: 100px;
+      font-size: 14px;
+      font-weight: 700;
+      color: white;
+    }
+    .urgency-badge::before {
+      content: '';
+      width: 8px; height: 8px;
+      background: rgba(255,255,255,.7);
+      border-radius: 50%;
+    }
+
+    .result-body { padding: 24px 28px; display: flex; flex-direction: column; gap: 24px; }
+
+    .result-summary {
+      background: var(--bg);
+      border-radius: 10px;
+      padding: 18px 20px;
+      font-size: 16px;
+      line-height: 1.7;
+      font-weight: 500;
+    }
+
+    .result-section h3 {
+      font-size: 13px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: .6px;
+      color: var(--text-muted);
+      margin-bottom: 10px;
+    }
+    .result-section p { font-size: 15px; line-height: 1.7; }
+
+    .action-primary {
+      background: var(--green);
+      color: white;
+      border-radius: 10px;
+      padding: 16px 18px;
+      margin-bottom: 10px;
+    }
+    .action-primary .action-title { font-size: 15px; font-weight: 700; margin-bottom: 4px; }
+    .action-primary .action-desc  { font-size: 13px; opacity: .85; }
+
+    .action-secondary {
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 14px 18px;
+      margin-bottom: 8px;
+    }
+    .action-secondary .action-title { font-size: 14px; font-weight: 600; margin-bottom: 4px; }
+    .action-secondary .action-desc  { font-size: 13px; color: var(--text-muted); }
+
+    .reassurance {
+      border-left: 3px solid var(--green);
+      padding: 12px 16px;
+      background: var(--green-light);
+      border-radius: 0 8px 8px 0;
+      font-size: 14px;
+      font-weight: 500;
+      color: #1a5c4a;
+      line-height: 1.6;
+    }
+
+    .disclaimer {
+      font-size: 12px;
+      color: var(--text-muted);
+      line-height: 1.6;
+    }
+
+    .result-footer {
+      padding: 20px 28px;
+      border-top: 1px solid var(--border);
+      display: flex;
+      gap: 12px;
+    }
+    .result-footer .btn { flex: 1; font-size: 14px; padding: 12px; }
+
+    /* ── COPILOT OVERLAY ── */
+    #copilot-overlay {
+      position: fixed;
+      inset: 0;
+      z-index: 1000;
+      background: var(--white);
+      display: none;
+      flex-direction: column;
+      overflow: hidden;
+    }
+    #copilot-overlay.active { display: flex; }
+
+    .copilot-header {
+      flex-shrink: 0;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .copilot-nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 14px 16px;
+    }
+
+    .copilot-title {
+      font-size: 15px;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .copilot-subtitle {
+      text-align: center;
+      font-size: 12px;
+      color: var(--text-muted);
+      padding: 0 16px 12px;
+    }
+
+    .copilot-btn {
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 8px 10px;
+      border-radius: 8px;
+      color: var(--text-muted);
+      font-size: 14px;
+      font-weight: 500;
+      transition: background .15s, color .15s;
+      display: flex;
+      align-items: center;
+      gap: 4px;
+      white-space: nowrap;
+    }
+    .copilot-btn:hover { background: var(--bg); color: var(--text); }
+
+    /* messages */
+    #copilot-messages {
+      flex: 1;
+      overflow-y: auto;
+      padding: 20px 16px 12px;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      scroll-behavior: smooth;
+    }
+
+    .msg-row {
+      display: flex;
+      gap: 10px;
+      align-items: flex-end;
+      max-width: 100%;
+    }
+    .msg-row.user { flex-direction: row-reverse; }
+
+    .msg-avatar {
+      flex-shrink: 0;
+      width: 30px; height: 30px;
+      border-radius: 50%;
+      background: var(--green);
+      color: white;
+      font-size: 12px;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .msg-bubble {
+      max-width: min(75%, 480px);
+      padding: 12px 15px;
+      border-radius: 16px;
+      font-size: 14px;
+      line-height: 1.65;
+      word-break: break-word;
+    }
+    .msg-row.ai .msg-bubble {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-bottom-left-radius: 4px;
+      color: var(--text);
+      box-shadow: var(--shadow);
+    }
+    .msg-row.user .msg-bubble {
+      background: var(--green);
+      color: white;
+      border-bottom-right-radius: 4px;
+    }
+
+    /* typing indicator */
+    .typing-dots {
+      display: flex;
+      gap: 4px;
+      padding: 4px 2px;
+      align-items: center;
+    }
+    .typing-dots span {
+      width: 7px; height: 7px;
+      background: var(--text-muted);
+      border-radius: 50%;
+      animation: typingBounce 1.2s ease-in-out infinite;
+    }
+    .typing-dots span:nth-child(2) { animation-delay: .2s; }
+    .typing-dots span:nth-child(3) { animation-delay: .4s; }
+    @keyframes typingBounce {
+      0%, 60%, 100% { transform: translateY(0); opacity: .4; }
+      30% { transform: translateY(-5px); opacity: 1; }
+    }
+
+    /* quick chips */
+    #copilot-chips {
+      padding: 0 16px 12px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .chip {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: 100px;
+      padding: 7px 14px;
+      font-size: 13px;
+      font-weight: 500;
+      color: var(--text);
+      cursor: pointer;
+      transition: all .15s;
+      font-family: inherit;
+    }
+    .chip:hover { border-color: var(--green); color: var(--green); background: var(--green-light); }
+
+    /* input area */
+    .copilot-input-wrap {
+      flex-shrink: 0;
+      border-top: 1px solid var(--border);
+      padding: 12px 16px;
+      display: flex;
+      gap: 10px;
+      align-items: flex-end;
+      background: var(--white);
+    }
+
+    #copilot-input {
+      flex: 1;
+      resize: none;
+      border: 1.5px solid var(--border);
+      border-radius: 12px;
+      padding: 10px 14px;
+      font-family: inherit;
+      font-size: 14px;
+      line-height: 1.5;
+      color: var(--text);
+      outline: none;
+      max-height: 120px;
+      min-height: 42px;
+      overflow-y: auto;
+      transition: border-color .15s;
+    }
+    #copilot-input:focus { border-color: var(--green); }
+    #copilot-input::placeholder { color: #adb5bd; }
+
+    #copilot-send {
+      flex-shrink: 0;
+      width: 40px; height: 40px;
+      border-radius: 50%;
+      background: var(--green);
+      color: white;
+      border: none;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: background .15s, transform .15s;
+      font-size: 16px;
+    }
+    #copilot-send:hover { background: var(--green-hover); transform: scale(1.05); }
+    #copilot-send:disabled { background: #d1d5db; cursor: default; transform: none; }
+
+    /* ── KNOWLEDGE BASE OVERLAY ── */
+    #kb-overlay {
+      position: fixed;
+      inset: 0;
+      z-index: 1000;
+      background: var(--white);
+      display: none;
+      flex-direction: column;
+      overflow: hidden;
+    }
+    #kb-overlay.active { display: flex; }
+
+    .kb-header {
+      flex-shrink: 0;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .kb-nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 14px 16px;
+    }
+
+    .kb-title {
+      font-size: 15px;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .kb-btn {
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 8px 10px;
+      border-radius: 8px;
+      color: var(--text-muted);
+      font-size: 14px;
+      font-weight: 500;
+      transition: background .15s, color .15s;
+      display: flex;
+      align-items: center;
+      gap: 4px;
+      white-space: nowrap;
+      font-family: inherit;
+    }
+    .kb-btn:hover { background: var(--bg); color: var(--text); }
+
+    .kb-search-wrap {
+      padding: 10px 16px;
+      position: relative;
+    }
+    .kb-search-wrap svg {
+      position: absolute;
+      left: 28px;
+      top: 50%;
+      transform: translateY(-50%);
+      color: #9ca3af;
+      pointer-events: none;
+    }
+    #kb-search {
+      width: 100%;
+      border: 1.5px solid var(--border);
+      border-radius: 10px;
+      padding: 10px 14px 10px 38px;
+      font-family: inherit;
+      font-size: 14px;
+      outline: none;
+      color: var(--text);
+      background: var(--bg);
+      transition: border-color .15s;
+    }
+    #kb-search:focus { border-color: var(--green); background: var(--white); }
+    #kb-search::placeholder { color: #adb5bd; }
+
+    .kb-tabs {
+      display: flex;
+      gap: 6px;
+      padding: 0 16px 12px;
+      overflow-x: auto;
+      scrollbar-width: none;
+    }
+    .kb-tabs::-webkit-scrollbar { display: none; }
+
+    .kb-tab {
+      flex-shrink: 0;
+      padding: 6px 14px;
+      border-radius: 100px;
+      font-size: 13px;
+      font-weight: 600;
+      cursor: pointer;
+      border: 1.5px solid var(--border);
+      background: var(--white);
+      color: var(--text-muted);
+      transition: all .15s;
+      font-family: inherit;
+    }
+    .kb-tab:hover { border-color: var(--green); color: var(--green); }
+    .kb-tab.active {
+      background: var(--green);
+      border-color: var(--green);
+      color: white;
+    }
+
+    /* article list */
+    #kb-list {
+      flex: 1;
+      overflow-y: auto;
+      padding: 12px 16px 24px;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .kb-card {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      box-shadow: var(--shadow);
+      transition: border-color .15s;
+    }
+    .kb-card:hover { border-color: #c4d9d4; }
+
+    .kb-card-header {
+      display: flex;
+      align-items: flex-start;
+      gap: 14px;
+      padding: 16px;
+      cursor: pointer;
+      user-select: none;
+    }
+
+    .kb-card-icon {
+      flex-shrink: 0;
+      width: 40px; height: 40px;
+      background: var(--green-light);
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 20px;
+    }
+
+    .kb-card-meta { flex: 1; min-width: 0; }
+
+    .kb-card-cat {
+      font-size: 11px;
+      font-weight: 700;
+      color: var(--green);
+      text-transform: uppercase;
+      letter-spacing: .5px;
+      margin-bottom: 3px;
+    }
+
+    .kb-card-title {
+      font-size: 15px;
+      font-weight: 700;
+      color: var(--text);
+      margin-bottom: 5px;
+      line-height: 1.35;
+      white-space: normal;
+      overflow-wrap: break-word;
+      word-break: break-word;
+      display: block;
+      max-height: none;
+      height: auto;
+    }
+
+    .kb-card-summary {
+      font-size: 13px;
+      color: var(--text-muted);
+      line-height: 1.55;
+      max-height: 3.1em;
+      overflow: hidden;
+    }
+
+    .kb-card-footer {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-top: 8px;
+    }
+
+    .kb-read-time {
+      font-size: 11px;
+      color: #9ca3af;
+      font-weight: 500;
+    }
+
+    .kb-chevron {
+      width: 20px; height: 20px;
+      color: #9ca3af;
+      flex-shrink: 0;
+      transition: transform .25s;
+      margin-top: 2px;
+    }
+    .kb-card.open .kb-chevron { transform: rotate(180deg); }
+
+    /* article full content */
+    .kb-card-body {
+      display: none;
+      padding: 0 16px 16px;
+      border-top: 1px solid var(--border);
+      margin-top: 0;
+    }
+    .kb-card.open .kb-card-body { display: block; }
+
+    .kb-card-content {
+      padding-top: 14px;
+      font-size: 14px;
+      line-height: 1.75;
+      color: #374151;
+    }
+    .kb-card-content p { margin-bottom: 12px; }
+    .kb-card-content p:last-child { margin-bottom: 0; }
+    .kb-card-content strong {
+      display: block;
+      font-size: 12px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: .5px;
+      color: var(--green);
+      margin: 16px 0 6px;
+    }
+
+    .kb-empty {
+      text-align: center;
+      padding: 48px 24px;
+      color: var(--text-muted);
+    }
+    .kb-empty-icon { font-size: 36px; margin-bottom: 12px; }
+    .kb-empty h3 { font-size: 16px; font-weight: 600; margin-bottom: 6px; }
+    .kb-empty p { font-size: 14px; }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 640px) {
+      section { padding: 60px 16px; }
+      .hero { padding-top: 100px; padding-bottom: 60px; }
+      .result-body { padding: 20px 16px; }
+      .result-header { padding: 20px 16px 16px; }
+      .result-footer { padding: 16px; flex-direction: column; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ── NAVBAR ── -->
+<nav>
+  <div class="nav-inner">
+    <a class="logo" href="#">
+      <span>Clarity</span><span>Health</span>
+    </a>
+    <button class="hamburger" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+
+<!-- ── HERO ── -->
+<section class="hero">
+  <div class="container">
+    <div class="pill">Health guidance, not diagnosis</div>
+    <h1>Not sure what your symptoms mean?</h1>
+    <p>Get a clearer understanding of what might matter — and what to do next.</p>
+    <div class="hero-btns">
+      <button class="btn btn-primary btn-full start-check-btn">Start Guided Check →</button>
+      <button class="btn btn-secondary btn-full open-kb-btn">Explore Knowledge</button>
+    </div>
+  </div>
+</section>
+
+<!-- ── PAIN POINTS ── -->
+<section class="pain">
+  <div class="container">
+    <div class="pain-header">
+      <h2>Taking ownership of your health starts with understanding your own signals — knowing what to notice, and what to say.</h2>
+      <p>Small symptoms are often easy to dismiss — especially when they seem unrelated or don't appear in routine tests.</p>
+    </div>
+    <div class="cards-3">
+      <div class="card">
+        <div class="card-icon">❓</div>
+        <h3>Not sure what to do</h3>
+        <p>You have a symptom or concern but don't know if it's worth worrying about or what steps to take.</p>
+      </div>
+      <div class="card">
+        <div class="card-icon">🔍</div>
+        <h3>Overwhelmed by information</h3>
+        <p>Searching online leads to anxiety, not answers. You need structure, not more noise.</p>
+      </div>
+      <div class="card">
+        <div class="card-icon">⚠️</div>
+        <h3>Between 'fine' and 'urgent'</h3>
+        <p>Most health moments aren't emergencies — but they're not nothing. You need guidance for the gray area.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── HOW IT WORKS ── -->
+<section class="how">
+  <div class="container">
+    <div class="section-header">
+      <h2>How it works</h2>
+      <p>A calm, step-by-step journey from question to clarity</p>
+    </div>
+    <div class="steps">
+      <div class="step">
+        <div class="step-num">01</div>
+        <div class="step-icon">💬</div>
+        <h3>Guided Check</h3>
+        <p>Answer simple, calm questions about what you're experiencing. No medical jargon.</p>
+      </div>
+      <div class="step">
+        <div class="step-num">02</div>
+        <div class="step-icon">📋</div>
+        <h3>Interpretation</h3>
+        <p>Understand what might matter and why — structured explanations, not diagnoses.</p>
+      </div>
+      <div class="step">
+        <div class="step-num">03</div>
+        <div class="step-icon">🗺️</div>
+        <h3>Action Map</h3>
+        <p>See your possible next steps: monitor, learn more, adjust habits, or consider a visit.</p>
+      </div>
+      <div class="step">
+        <div class="step-num">04</div>
+        <div class="step-icon">📖</div>
+        <h3>Learn &amp; Follow Up</h3>
+        <p>Access educational content and ask follow-up questions anytime.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── EXPLORE ── -->
+<section class="explore">
+  <div class="container">
+    <div class="section-header">
+      <h2>Explore the product</h2>
+      <p>Three entry points into better health decisions</p>
+    </div>
+    <div class="explore-cards">
+      <div class="explore-card">
+        <div class="card-icon">🩺</div>
+        <h3>Guided Check</h3>
+        <p>Start with your situation. Get structured guidance in minutes.</p>
+        <button class="btn btn-primary start-check-btn">Start Check →</button>
+      </div>
+      <div class="explore-card">
+        <div class="card-icon">📖</div>
+        <h3>Knowledge Base</h3>
+        <p>Learn how to think about common health decisions with clear, human explanations.</p>
+        <button class="btn btn-outline open-kb-btn">Browse →</button>
+      </div>
+      <div class="explore-card">
+        <div class="card-icon">💬</div>
+        <h3>AI Copilot</h3>
+        <p>Ask follow-up questions in a calm, supportive conversation.</p>
+        <button class="btn btn-primary open-copilot-btn">Chat with AI →</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── CTA ── -->
+<section class="cta">
+  <div class="container">
+    <h2>Ready to get clarity?</h2>
+    <p>It takes less than 3 minutes. No account needed. Just honest guidance.</p>
+    <div style="display:flex;justify-content:center;">
+      <button class="btn btn-primary btn-full start-check-btn" style="max-width:380px;">Start Your Guided Check →</button>
+    </div>
+  </div>
+</section>
+
+<!-- ── COPILOT OVERLAY ── -->
+<div id="copilot-overlay" role="dialog" aria-modal="true" aria-label="AI Health Copilot">
+  <div class="copilot-header">
+    <div class="copilot-nav">
+      <button class="copilot-btn" id="copilot-back-btn">← Back</button>
+      <div class="copilot-title">💬 AI Health Copilot</div>
+      <button class="copilot-btn" id="copilot-close-btn">✕</button>
+    </div>
+    <div class="copilot-subtitle">Not a doctor. Here to help you think clearly.</div>
+  </div>
+
+  <div id="copilot-messages"></div>
+
+  <div id="copilot-chips">
+    <button class="chip">I've been feeling tired lately</button>
+    <button class="chip">I have a symptom I'm not sure about</button>
+    <button class="chip">Should I see a doctor?</button>
+    <button class="chip">Help me understand my test results</button>
+  </div>
+
+  <div class="copilot-input-wrap">
+    <textarea id="copilot-input" rows="1" placeholder="Ask me anything about your health..."></textarea>
+    <button id="copilot-send" aria-label="Send message" disabled>
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+        <line x1="22" y1="2" x2="11" y2="13"></line>
+        <polygon points="22 2 15 22 11 13 2 9 22 2"></polygon>
+      </svg>
+    </button>
+  </div>
+</div>
+
+<!-- ── KNOWLEDGE BASE OVERLAY ── -->
+<div id="kb-overlay" role="dialog" aria-modal="true" aria-label="Knowledge Base">
+  <div class="kb-header">
+    <div class="kb-nav">
+      <button class="kb-btn" id="kb-back-btn">← Back</button>
+      <div class="kb-title">📖 Knowledge Base</div>
+      <button class="kb-btn" id="kb-close-btn">✕</button>
+    </div>
+    <div class="kb-search-wrap">
+      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+      <input id="kb-search" type="text" placeholder="Search health topics..." autocomplete="off" />
+    </div>
+    <div class="kb-tabs" id="kb-tabs">
+      <button class="kb-tab active" data-cat="All">All</button>
+      <button class="kb-tab" data-cat="Symptoms">Symptoms</button>
+      <button class="kb-tab" data-cat="Lifestyle">Lifestyle</button>
+      <button class="kb-tab" data-cat="Prevention">Prevention</button>
+      <button class="kb-tab" data-cat="Doctor Visits">Doctor Visits</button>
+    </div>
+  </div>
+  <div id="kb-list"></div>
+</div>
+
+<!-- ── QUIZ OVERLAY ── -->
+<div id="quiz-overlay" role="dialog" aria-modal="true" aria-label="Guided Health Check">
+  <div class="quiz-top">
+    <div class="quiz-nav">
+      <button class="quiz-back" id="quiz-back-btn" aria-label="Previous question" disabled>
+        ← Back
+      </button>
+      <span class="quiz-counter" id="quiz-counter">1 / 11</span>
+      <button class="quiz-close" id="quiz-close-btn" aria-label="Close quiz">✕</button>
+    </div>
+    <div class="progress-bar">
+      <div class="progress-fill" id="quiz-progress" style="width:9.09%"></div>
+    </div>
+  </div>
+
+  <div class="quiz-body" id="quiz-body">
+    <!-- Slides injected by JS -->
+  </div>
+
+  <div class="quiz-footer" id="quiz-footer" style="display:none;">
+    <button class="btn btn-primary btn-full" id="quiz-ok-btn">OK →</button>
+  </div>
+</div>
+
+<!-- ── LOADING SCREEN ── -->
+<div id="loading-screen">
+  <div class="spinner"></div>
+  <div id="loading-text">Reviewing your responses...</div>
+</div>
+
+<!-- ── RESULT SCREEN ── -->
+<div id="result-screen">
+  <div class="result-card">
+    <div class="result-header">
+      <h2>Your Health Check Results</h2>
+      <div class="urgency-badge" id="urgency-badge">Keep Monitoring</div>
+    </div>
+    <div class="result-body">
+      <div class="result-summary" id="result-summary"></div>
+      <div class="result-section">
+        <h3>What this might mean</h3>
+        <p id="result-meaning"></p>
+      </div>
+      <div class="result-section">
+        <h3>Your Action Map</h3>
+        <div id="result-actions"></div>
+      </div>
+      <div class="reassurance" id="result-reassurance"></div>
+      <div class="disclaimer" id="result-disclaimer"></div>
+    </div>
+    <div class="result-footer">
+      <button class="btn btn-outline" id="result-start-over">Start Over</button>
+      <button class="btn btn-primary" id="result-copy">Copy Results</button>
+    </div>
+  </div>
+</div>
+
+<script>
+// ── CONFIG ──────────────────────────────────────────────────────────────────
+const API_KEY = ""; // Fill in your Anthropic API key here
+const SHEETS_URL = "https://script.google.com/macros/s/AKfycbw6iBvnvfe4-BchK8_aGltLIBrx0LOLUEe80JrwLr9H6qFJ5bKY_nuIlAsAXZZ-JjL7/exec";
+
+// ── SESSION ─────────────────────────────────────────────────────────────────
+const sessionId = crypto.randomUUID ? crypto.randomUUID() : Math.random().toString(36).slice(2) + Date.now();
+
+// ── QUESTIONS DATA ───────────────────────────────────────────────────────────
+const QUESTIONS = [
+  {
+    id: 1,
+    type: "multi",
+    text: "Have you experienced any of the following recently?",
+    options: [
+      "Unexplained weight loss (>5kg / 10 lbs)",
+      "Persistent fatigue (lasting >2 weeks)",
+      "Unexplained pain (lasting >2 weeks)",
+      "Unusual bleeding or discharge",
+      "New lump or swelling",
+      "Persistent cough (>3 weeks)",
+      "Change in bowel habits",
+      "None of the above"
+    ]
+  },
+  {
+    id: 2,
+    type: "single",
+    text: "How noticeable or concerning are these symptoms?",
+    options: [
+      "Mild, barely noticeable",
+      "Moderate, noticeable but manageable",
+      "Significant, affecting daily life"
+    ]
+  },
+  {
+    id: 3,
+    type: "single",
+    text: "How long have these symptoms been present?",
+    options: ["A few days", "1–2 weeks", "2–4 weeks", "More than 1 month"]
+  },
+  {
+    id: 4,
+    type: "single",
+    text: "Have the symptoms changed over time?",
+    options: ["Improving", "Staying the same", "Gradually worsening"]
+  },
+  {
+    id: 5,
+    type: "multi",
+    text: "Do any of the following apply to you?",
+    options: [
+      "Smoking (current or past)",
+      "Family history of cancer",
+      "Chronic health conditions",
+      "High stress levels",
+      "Poor sleep quality",
+      "Sedentary lifestyle",
+      "None"
+    ]
+  },
+  {
+    id: 6,
+    type: "single",
+    text: "What is your age range?",
+    options: ["Under 18", "18–35", "36–50", "51–65", "65+"]
+  },
+  {
+    id: 7,
+    type: "single",
+    text: "How certain are you about what these symptoms might mean?",
+    options: ["Very certain", "Somewhat certain", "Not sure", "Completely unsure"]
+  },
+  {
+    id: 8,
+    type: "single",
+    text: "What do you think is the most likely explanation?",
+    options: [
+      "Something minor / temporary",
+      "Lifestyle-related",
+      "Something that may need attention",
+      "Not sure"
+    ]
+  },
+  {
+    id: 9,
+    type: "single",
+    text: "What do you usually do when you notice something unusual?",
+    options: ["Ignore it", "Search online", "Monitor it", "Ask others", "Seek medical help"]
+  },
+  {
+    id: 10,
+    type: "single",
+    text: "Have you taken any action for this specific issue?",
+    options: ["Yes, already", "Planning to", "Not yet", "No intention"]
+  },
+  {
+    id: 11,
+    type: "single",
+    text: "What makes it hardest to take action?",
+    options: [
+      "Not sure if it's serious",
+      "Too many options",
+      "Cost / time",
+      "Fear / anxiety",
+      "I tend to delay"
+    ]
+  }
+];
+
+// ── STATE ────────────────────────────────────────────────────────────────────
+let currentQ = 0;
+let answers = {};
+let currentSelections = [];
+let dropoffTimer = null;
+let lastResult = null;
+let quizOpen = false;
+
+// ── GA HELPERS ───────────────────────────────────────────────────────────────
+function gaEvent(name, params) {
+  if (typeof gtag !== "undefined") gtag("event", name, params || {});
+}
+
+// ── SHEETS HELPER ────────────────────────────────────────────────────────────
+function sendToSheets(urgency, dropoff) {
+  const payload = {
+    session_id: sessionId,
+    q1:  answers[1]  || "",
+    q2:  answers[2]  || "",
+    q3:  answers[3]  || "",
+    q4:  answers[4]  || "",
+    q5:  answers[5]  || "",
+    q6:  answers[6]  || "",
+    q7:  answers[7]  || "",
+    q8:  answers[8]  || "",
+    q9:  answers[9]  || "",
+    q10: answers[10] || "",
+    q11: answers[11] || "",
+    urgency_level: urgency || "",
+    drop_off_question: dropoff || ""
+  };
+  try {
+    const blob = new Blob([JSON.stringify(payload)], { type: "application/json" });
+    navigator.sendBeacon(SHEETS_URL, blob);
+  } catch (_) {}
+}
+
+// ── PAGE CLOSE BEACON ────────────────────────────────────────────────────────
+window.addEventListener("pagehide", () => {
+  if (quizOpen) {
+    const currentQNum = QUESTIONS[currentQ] ? QUESTIONS[currentQ].id : "";
+    sendToSheets("", currentQNum);
+  }
+});
+
+// ── QUIZ OPEN ────────────────────────────────────────────────────────────────
+function openQuiz() {
+  currentQ = 0;
+  answers = {};
+  currentSelections = [];
+  quizOpen = true;
+
+  gaEvent("guided_check_started");
+
+  const overlay = document.getElementById("quiz-overlay");
+  overlay.classList.add("active");
+  document.body.style.overflow = "hidden";
+
+  renderQuestion(0, "right");
+}
+
+function closeQuiz(dropoff) {
+  clearDropoffTimer();
+  quizOpen = false;
+  document.getElementById("quiz-overlay").classList.remove("active");
+  document.body.style.overflow = "";
+
+  if (dropoff) {
+    const qNum = QUESTIONS[currentQ] ? QUESTIONS[currentQ].id : "";
+    gaEvent("question_dropoff", { question_number: qNum });
+    sendToSheets("", qNum);
+  }
+}
+
+// ── RENDER QUESTION ──────────────────────────────────────────────────────────
+function renderQuestion(index, direction) {
+  clearDropoffTimer();
+
+  const body = document.getElementById("quiz-body");
+  const q = QUESTIONS[index];
+  const letters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+
+  // Remove old exit slides
+  body.querySelectorAll(".question-slide.exit-to-left, .question-slide.exit-to-right").forEach(el => el.remove());
+
+  // Exit current active slide
+  const existing = body.querySelector(".question-slide.active");
+  if (existing) {
+    existing.classList.remove("active");
+    existing.classList.add(direction === "right" ? "exit-to-left" : "exit-to-right");
+    setTimeout(() => existing.remove(), 320);
+  }
+
+  // Build new slide
+  const slide = document.createElement("div");
+  slide.className = "question-slide " + (direction === "right" ? "enter-from-right" : "enter-from-left");
+
+  const savedAnswer = answers[q.id];
+  const savedSelections = Array.isArray(savedAnswer)
+    ? savedAnswer
+    : (savedAnswer ? [savedAnswer] : []);
+
+  slide.innerHTML = `
+    <div class="question-type-badge">${q.type === "multi" ? "Select all that apply" : "Choose one"}</div>
+    <div class="question-text">${q.text}</div>
+    <div class="options-list">
+      ${q.options.map((opt, i) => {
+        const isSelected = savedSelections.includes(opt);
+        return `<div class="option-card${isSelected ? " selected" : ""}" data-option="${escHtml(opt)}" data-index="${i}">
+          <div class="option-badge">${letters[i]}</div>
+          <div class="option-text">${escHtml(opt)}</div>
+        </div>`;
+      }).join("")}
+    </div>
+  `;
+
+  body.appendChild(slide);
+
+  // Animate in
+  requestAnimationFrame(() => {
+    requestAnimationFrame(() => {
+      slide.classList.remove("enter-from-right", "enter-from-left");
+      slide.classList.add("active");
+    });
+  });
+
+  // Restore multi-select state
+  if (q.type === "multi") {
+    currentSelections = [...savedSelections];
+  } else {
+    currentSelections = [];
+  }
+
+  // Attach click handlers
+  slide.querySelectorAll(".option-card").forEach(card => {
+    card.addEventListener("click", () => handleOptionClick(card, q));
+  });
+
+  // Update UI
+  updateQuizNav(index);
+
+  // Start dropoff timer
+  startDropoffTimer(q.id);
+}
+
+function escHtml(str) {
+  return str.replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;").replace(/"/g,"&quot;");
+}
+
+// ── OPTION CLICK ────────────────────────────────────────────────────────────
+function handleOptionClick(card, q) {
+  clearDropoffTimer();
+
+  if (q.type === "single") {
+    // Deselect all, select this
+    document.querySelectorAll(".option-card.selected").forEach(c => c.classList.remove("selected"));
+    card.classList.add("selected");
+
+    const answer = card.dataset.option;
+    answers[q.id] = answer;
+
+    gaEvent("question_answered", { question_number: q.id, answer });
+
+    setTimeout(() => nextQuestion(), 300);
+
+  } else {
+    // Multi-select toggle
+    const opt = card.dataset.option;
+    const noneOpt = "None of the above";
+    const noneAlt = "None";
+    const isNone = opt === noneOpt || opt === noneAlt;
+
+    if (isNone) {
+      // Select none, deselect others
+      currentSelections = [opt];
+      document.querySelectorAll(".option-card").forEach(c => {
+        c.classList.toggle("selected", c.dataset.option === opt);
+      });
+    } else {
+      // Remove none options
+      currentSelections = currentSelections.filter(s => s !== noneOpt && s !== noneAlt);
+      document.querySelectorAll(".option-card").forEach(c => {
+        if (c.dataset.option === noneOpt || c.dataset.option === noneAlt) {
+          c.classList.remove("selected");
+        }
+      });
+
+      const idx = currentSelections.indexOf(opt);
+      if (idx > -1) {
+        currentSelections.splice(idx, 1);
+        card.classList.remove("selected");
+      } else {
+        currentSelections.push(opt);
+        card.classList.add("selected");
+      }
+    }
+
+    updateOkButton();
+    startDropoffTimer(q.id);
+  }
+}
+
+function updateOkButton() {
+  const footer = document.getElementById("quiz-footer");
+  const btn = document.getElementById("quiz-ok-btn");
+  const q = QUESTIONS[currentQ];
+  if (q && q.type === "multi") {
+    footer.style.display = "block";
+    btn.disabled = currentSelections.length === 0;
+    btn.style.opacity = currentSelections.length === 0 ? "0.5" : "1";
+  } else {
+    footer.style.display = "none";
+  }
+}
+
+// ── NAVIGATION ───────────────────────────────────────────────────────────────
+function nextQuestion() {
+  const q = QUESTIONS[currentQ];
+
+  if (q.type === "multi") {
+    if (currentSelections.length === 0) return;
+    answers[q.id] = currentSelections.join(", ");
+    gaEvent("question_answered", { question_number: q.id, answer: answers[q.id] });
+  }
+
+  if (currentQ >= QUESTIONS.length - 1) {
+    // Done
+    gaEvent("check_completed");
+    sendToSheets("", "");
+    closeQuiz(false);
+    showLoading();
+    return;
+  }
+
+  currentQ++;
+  renderQuestion(currentQ, "right");
+}
+
+function prevQuestion() {
+  if (currentQ === 0) return;
+  currentQ--;
+  renderQuestion(currentQ, "left");
+}
+
+function updateQuizNav(index) {
+  const total = QUESTIONS.length;
+  const num = index + 1;
+  document.getElementById("quiz-counter").textContent = `${num} / ${total}`;
+  document.getElementById("quiz-progress").style.width = `${(num / total) * 100}%`;
+
+  const backBtn = document.getElementById("quiz-back-btn");
+  backBtn.disabled = index === 0;
+
+  updateOkButton();
+}
+
+// ── DROPOFF TIMER ────────────────────────────────────────────────────────────
+function startDropoffTimer(qId) {
+  clearDropoffTimer();
+  dropoffTimer = setTimeout(() => {
+    gaEvent("question_dropoff", { question_number: qId });
+  }, 60000);
+}
+
+function clearDropoffTimer() {
+  if (dropoffTimer) { clearTimeout(dropoffTimer); dropoffTimer = null; }
+}
+
+// ── LOADING ──────────────────────────────────────────────────────────────────
+const LOADING_MSGS = [
+  "Reviewing your responses...",
+  "Mapping possible explanations...",
+  "Building your action plan..."
+];
+
+function showLoading() {
+  const screen = document.getElementById("loading-screen");
+  const textEl = document.getElementById("loading-text");
+  screen.classList.add("active");
+  document.body.style.overflow = "hidden";
+
+  let msgIdx = 0;
+  textEl.textContent = LOADING_MSGS[0];
+  const interval = setInterval(() => {
+    msgIdx = (msgIdx + 1) % LOADING_MSGS.length;
+    textEl.style.opacity = "0";
+    setTimeout(() => {
+      textEl.textContent = LOADING_MSGS[msgIdx];
+      textEl.style.opacity = "1";
+    }, 200);
+  }, 800);
+
+  callClaudeAPI().then(result => {
+    clearInterval(interval);
+    setTimeout(() => {
+      screen.classList.remove("active");
+      showResult(result);
+    }, 400);
+  }).catch(() => {
+    clearInterval(interval);
+    setTimeout(() => {
+      screen.classList.remove("active");
+      showResult(generateFallbackResult(answers));
+    }, 400);
+  });
+}
+
+// ── CLAUDE API ───────────────────────────────────────────────────────────────
+async function callClaudeAPI() {
+  if (!API_KEY) throw new Error("No API key");
+
+  const prompt = `Health check responses:
+Q1 (Symptoms): ${answers[1] || ""}
+Q2 (Severity): ${answers[2] || ""}
+Q3 (Duration): ${answers[3] || ""}
+Q4 (Trend): ${answers[4] || ""}
+Q5 (Risk factors): ${answers[5] || ""}
+Q6 (Age): ${answers[6] || ""}
+Q7 (Certainty): ${answers[7] || ""}
+Q8 (Believed cause): ${answers[8] || ""}
+Q9 (Usual behavior): ${answers[9] || ""}
+Q10 (Action taken): ${answers[10] || ""}
+Q11 (Barrier): ${answers[11] || ""}`;
+
+  const response = await fetch("https://api.anthropic.com/v1/messages", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+      "x-api-key": API_KEY,
+      "anthropic-version": "2023-06-01",
+      "anthropic-dangerous-direct-browser-access": "true"
+    },
+    body: JSON.stringify({
+      model: "claude-sonnet-4-20250514",
+      max_tokens: 1000,
+      system: `You are ClarityHealth's AI health guidance engine. Provide calm, clear, non-diagnostic health guidance.
+
+STRICT RULES:
+- NEVER diagnose. Use phrases like "this may suggest", "worth monitoring", "could be related to"
+- ALWAYS recommend professional medical advice for anything concerning
+- Keep tone calm, warm, and non-alarming
+- Be specific and actionable
+
+Respond ONLY with valid JSON, no markdown backticks:
+{
+  "urgency_level": "monitor" | "worth_checking" | "see_a_doctor",
+  "urgency_label": "Keep Monitoring | Worth a Check-up | See a Doctor Soon",
+  "urgency_color": "#2d9b7f" for monitor, "#f59e0b" for worth_checking, "#ef4444" for see_a_doctor,
+  "summary": "2-3 calm sentences summarizing the overall picture",
+  "what_this_might_mean": "2-3 sentences with possible interpretations, never diagnosing",
+  "action_map": [
+    {"action": "Short action title", "description": "One sentence", "priority": "primary"},
+    {"action": "Short action title", "description": "One sentence", "priority": "secondary"},
+    {"action": "Short action title", "description": "One sentence", "priority": "secondary"}
+  ],
+  "reassurance": "One warm, supportive closing sentence",
+  "disclaimer": "This is not medical advice. Please consult a healthcare professional for proper evaluation."
+}`,
+      messages: [{ role: "user", content: prompt }]
+    })
+  });
+
+  if (!response.ok) throw new Error("API error " + response.status);
+  const data = await response.json();
+  const text = data.content[0].text.trim();
+  return JSON.parse(text);
+}
+
+// ── FALLBACK ─────────────────────────────────────────────────────────────────
+function generateFallbackResult(ans) {
+  const q1 = ans[1] || "";
+  const severeSymptoms = ["Unusual bleeding or discharge", "New lump or swelling", "Unexplained weight loss"];
+  const hasSevere = severeSymptoms.some(s => q1.includes(s));
+  const isWorsening = ans[4] === "Gradually worsening";
+  const isSignificant = ans[2] === "Significant, affecting daily life";
+
+  if (hasSevere || (isWorsening && isSignificant)) {
+    return {
+      urgency_level: "see_a_doctor",
+      urgency_label: "See a Doctor Soon",
+      urgency_color: "#ef4444",
+      summary: "Based on your responses, some of your symptoms may benefit from professional evaluation. This is not a cause for alarm, but getting a check-up would give you clarity and peace of mind.",
+      what_this_might_mean: "Some of the symptoms you described are ones that healthcare professionals typically like to assess in person. Early evaluation is usually the most reassuring path forward.",
+      action_map: [
+        { action: "Book a GP appointment", description: "Schedule a visit with your primary care doctor to discuss your symptoms.", priority: "primary" },
+        { action: "Track your symptoms", description: "Keep a simple log of when symptoms occur and any changes you notice.", priority: "secondary" },
+        { action: "Avoid self-diagnosing online", description: "Search results can be alarming and inaccurate — a doctor can give you real answers.", priority: "secondary" }
+      ],
+      reassurance: "Taking this step shows you are paying attention to your health — that is exactly the right thing to do.",
+      disclaimer: "This is not medical advice. Please consult a healthcare professional for proper evaluation."
+    };
+  } else {
+    return {
+      urgency_level: "monitor",
+      urgency_label: "Keep Monitoring",
+      urgency_color: "#2d9b7f",
+      summary: "Based on your responses, your symptoms appear to be in a range that is worth keeping an eye on, but not immediately urgent. Staying aware of any changes is a good next step.",
+      what_this_might_mean: "Many everyday symptoms are related to lifestyle factors like stress, sleep, or activity levels. Monitoring them over the next 1–2 weeks can help clarify whether they need further attention.",
+      action_map: [
+        { action: "Monitor for 1–2 weeks", description: "Note if symptoms persist, worsen, or new ones appear.", priority: "primary" },
+        { action: "Review lifestyle factors", description: "Consider sleep, stress, hydration and activity levels as potential contributors.", priority: "secondary" },
+        { action: "Set a check-in reminder", description: "If symptoms persist beyond 2 weeks, schedule a doctor visit.", priority: "secondary" }
+      ],
+      reassurance: "Paying attention to your body is always the right move — you are doing great by taking this step.",
+      disclaimer: "This is not medical advice. Please consult a healthcare professional for proper evaluation."
+    };
+  }
+}
+
+// ── SHOW RESULT ───────────────────────────────────────────────────────────────
+function showResult(result) {
+  lastResult = result;
+
+  sendToSheets(result.urgency_level, "");
+  gaEvent("result_viewed");
+
+  const screen = document.getElementById("result-screen");
+  screen.classList.add("active");
+  document.body.style.overflow = "auto";
+
+  const badge = document.getElementById("urgency-badge");
+  badge.textContent = result.urgency_label;
+  badge.style.backgroundColor = result.urgency_color;
+
+  document.getElementById("result-summary").textContent = result.summary;
+  document.getElementById("result-meaning").textContent = result.what_this_might_mean;
+  document.getElementById("result-reassurance").textContent = result.reassurance;
+  document.getElementById("result-disclaimer").textContent = result.disclaimer;
+
+  const actionsEl = document.getElementById("result-actions");
+  actionsEl.innerHTML = result.action_map.map(a => {
+    if (a.priority === "primary") {
+      return `<div class="action-primary">
+        <div class="action-title">${escHtml(a.action)}</div>
+        <div class="action-desc">${escHtml(a.description)}</div>
+      </div>`;
+    } else {
+      return `<div class="action-secondary">
+        <div class="action-title">${escHtml(a.action)}</div>
+        <div class="action-desc">${escHtml(a.description)}</div>
+      </div>`;
+    }
+  }).join("");
+
+  screen.scrollTop = 0;
+}
+
+function hideResult() {
+  document.getElementById("result-screen").classList.remove("active");
+  document.body.style.overflow = "";
+}
+
+// ── EVENT LISTENERS ───────────────────────────────────────────────────────────
+document.querySelectorAll(".start-check-btn").forEach(btn => {
+  btn.addEventListener("click", openQuiz);
+});
+
+document.getElementById("quiz-close-btn").addEventListener("click", () => closeQuiz(true));
+document.getElementById("quiz-back-btn").addEventListener("click", prevQuestion);
+document.getElementById("quiz-ok-btn").addEventListener("click", nextQuestion);
+
+document.getElementById("result-start-over").addEventListener("click", () => {
+  hideResult();
+});
+
+document.getElementById("result-copy").addEventListener("click", () => {
+  if (!lastResult) return;
+
+  gaEvent("result_shared");
+
+  const actions = lastResult.action_map.map((a, i) =>
+    `${i + 1}. ${a.action}: ${a.description}`
+  ).join("\n");
+
+  const text = [
+    "ClarityHealth Results",
+    "=".repeat(40),
+    lastResult.urgency_label,
+    "",
+    lastResult.summary,
+    "",
+    "Your Action Map:",
+    actions,
+    "",
+    lastResult.disclaimer
+  ].join("\n");
+
+  navigator.clipboard.writeText(text).then(() => {
+    const btn = document.getElementById("result-copy");
+    const orig = btn.textContent;
+    btn.textContent = "Copied!";
+    setTimeout(() => btn.textContent = orig, 2000);
+  }).catch(() => {});
+});
+
+// Keyboard: Escape closes quiz
+document.addEventListener("keydown", e => {
+  if (e.key === "Escape") {
+    if (document.getElementById("quiz-overlay").classList.contains("active")) {
+      closeQuiz(true);
+    }
+    if (document.getElementById("copilot-overlay").classList.contains("active")) {
+      closeCopilot();
+    }
+  }
+});
+
+// ── COPILOT ──────────────────────────────────────────────────────────────────
+const COPILOT_SYSTEM = `You are ClarityHealth's AI health assistant. You provide calm, clear, empathetic health guidance.
+
+STRICT RULES:
+- Never diagnose conditions
+- Always recommend seeing a doctor for serious or persistent symptoms
+- Use plain, non-medical language
+- Be warm and reassuring, not alarming
+- Keep responses concise (3-5 sentences max unless user asks for more)
+- If symptoms sound urgent/emergency, always say to call 911 or go to ER immediately
+- End responses with a follow-up question to keep conversation going
+
+You are NOT a replacement for medical care. You help people think more clearly about their health.`;
+
+const COPILOT_GREETING = `Hi! I'm ClarityHealth's AI assistant 👋\nI can help you think through symptoms, understand what they might mean, or figure out what to do next.\nWhat's on your mind today?`;
+
+const COPILOT_QUICK = [
+  "I've been feeling tired lately",
+  "I have a symptom I'm not sure about",
+  "Should I see a doctor?",
+  "Help me understand my test results"
+];
+
+let copilotHistory = []; // { role: "user"|"assistant", content: string }
+let copilotTyping = false;
+
+function openCopilot() {
+  copilotHistory = [];
+  copilotTyping = false;
+
+  const overlay = document.getElementById("copilot-overlay");
+  const messages = document.getElementById("copilot-messages");
+  const chips = document.getElementById("copilot-chips");
+  const input = document.getElementById("copilot-input");
+
+  messages.innerHTML = "";
+  chips.style.display = "flex";
+  input.value = "";
+  updateCopilotSend();
+
+  overlay.classList.add("active");
+  document.body.style.overflow = "hidden";
+
+  // Show greeting with slight delay for feel
+  setTimeout(() => appendAIMessage(COPILOT_GREETING, false), 400);
+}
+
+function closeCopilot() {
+  document.getElementById("copilot-overlay").classList.remove("active");
+  document.body.style.overflow = "";
+}
+
+function appendAIMessage(text, withTyping) {
+  const messages = document.getElementById("copilot-messages");
+
+  if (withTyping) {
+    // Show typing indicator first
+    const typingRow = document.createElement("div");
+    typingRow.className = "msg-row ai";
+    typingRow.id = "copilot-typing";
+    typingRow.innerHTML = `
+      <div class="msg-avatar">C</div>
+      <div class="msg-bubble"><div class="typing-dots"><span></span><span></span><span></span></div></div>
+    `;
+    messages.appendChild(typingRow);
+    scrollCopilotBottom();
+
+    // Replace with real message after a realistic delay
+    const delay = Math.min(600 + text.length * 12, 2200);
+    setTimeout(() => {
+      typingRow.remove();
+      renderAIMessage(text, messages);
+    }, delay);
+  } else {
+    renderAIMessage(text, messages);
+  }
+}
+
+function renderAIMessage(text, container) {
+  const row = document.createElement("div");
+  row.className = "msg-row ai";
+  row.innerHTML = `
+    <div class="msg-avatar">C</div>
+    <div class="msg-bubble">${formatMsg(text)}</div>
+  `;
+  container.appendChild(row);
+  scrollCopilotBottom();
+}
+
+function appendUserMessage(text) {
+  const messages = document.getElementById("copilot-messages");
+  const row = document.createElement("div");
+  row.className = "msg-row user";
+  row.innerHTML = `<div class="msg-bubble">${formatMsg(text)}</div>`;
+  messages.appendChild(row);
+  scrollCopilotBottom();
+}
+
+function formatMsg(text) {
+  // Convert newlines to <br>, escape HTML
+  return text
+    .replace(/&/g, "&amp;")
+    .replace(/</g, "&lt;")
+    .replace(/>/g, "&gt;")
+    .replace(/\n/g, "<br>");
+}
+
+function scrollCopilotBottom() {
+  const messages = document.getElementById("copilot-messages");
+  setTimeout(() => { messages.scrollTop = messages.scrollHeight; }, 50);
+}
+
+async function sendCopilotMessage(text) {
+  if (copilotTyping || !text.trim()) return;
+
+  // Hide quick chips after first user message
+  const chips = document.getElementById("copilot-chips");
+  if (chips.style.display !== "none") chips.style.display = "none";
+
+  appendUserMessage(text);
+  copilotHistory.push({ role: "user", content: text });
+
+  copilotTyping = true;
+  updateCopilotSend();
+
+  // Show typing indicator immediately
+  const messages = document.getElementById("copilot-messages");
+  const typingRow = document.createElement("div");
+  typingRow.className = "msg-row ai";
+  typingRow.id = "copilot-typing";
+  typingRow.innerHTML = `
+    <div class="msg-avatar">C</div>
+    <div class="msg-bubble"><div class="typing-dots"><span></span><span></span><span></span></div></div>
+  `;
+  messages.appendChild(typingRow);
+  scrollCopilotBottom();
+
+  let replyText = "";
+
+  try {
+    if (!API_KEY) throw new Error("no key");
+
+    const res = await fetch("https://api.anthropic.com/v1/messages", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        "x-api-key": API_KEY,
+        "anthropic-version": "2023-06-01",
+        "anthropic-dangerous-direct-browser-access": "true"
+      },
+      body: JSON.stringify({
+        model: "claude-sonnet-4-20250514",
+        max_tokens: 600,
+        system: COPILOT_SYSTEM,
+        messages: copilotHistory
+      })
+    });
+
+    if (!res.ok) throw new Error("api " + res.status);
+    const data = await res.json();
+    replyText = data.content[0].text.trim();
+
+  } catch (_) {
+    replyText = copilotFallback(text);
+  }
+
+  typingRow.remove();
+  copilotHistory.push({ role: "assistant", content: replyText });
+  renderAIMessage(replyText, messages);
+
+  copilotTyping = false;
+  updateCopilotSend();
+}
+
+function copilotFallback(userText) {
+  const lower = userText.toLowerCase();
+  const emergencyWords = ["chest pain", "can't breathe", "breathing", "unconscious", "stroke", "heart attack", "collapse"];
+  if (emergencyWords.some(w => lower.includes(w))) {
+    return "This sounds like it could be a medical emergency. Please call 911 or go to your nearest emergency room immediately. Don't wait — your safety comes first.";
+  }
+  const tiredWords = ["tired", "fatigue", "exhausted", "no energy", "sleep"];
+  if (tiredWords.some(w => lower.includes(w))) {
+    return "Persistent tiredness can have many causes — from poor sleep and stress to nutritional gaps or underlying conditions. It's worth paying attention to how long it's been going on and whether anything seems to trigger it. Has the fatigue been affecting your daily activities?";
+  }
+  return "That's a thoughtful question. While I'm not able to give you a diagnosis, I can help you think through what you're experiencing. Could you tell me a bit more — how long has this been going on, and has anything changed recently?";
+}
+
+function updateCopilotSend() {
+  const input = document.getElementById("copilot-input");
+  const btn = document.getElementById("copilot-send");
+  const hasText = input.value.trim().length > 0;
+  btn.disabled = !hasText || copilotTyping;
+}
+
+// Auto-resize textarea
+document.getElementById("copilot-input").addEventListener("input", function() {
+  this.style.height = "auto";
+  this.style.height = Math.min(this.scrollHeight, 120) + "px";
+  updateCopilotSend();
+});
+
+document.getElementById("copilot-input").addEventListener("keydown", function(e) {
+  if (e.key === "Enter" && !e.shiftKey) {
+    e.preventDefault();
+    const text = this.value.trim();
+    if (text && !copilotTyping) {
+      this.value = "";
+      this.style.height = "auto";
+      updateCopilotSend();
+      sendCopilotMessage(text);
+    }
+  }
+});
+
+document.getElementById("copilot-send").addEventListener("click", () => {
+  const input = document.getElementById("copilot-input");
+  const text = input.value.trim();
+  if (text && !copilotTyping) {
+    input.value = "";
+    input.style.height = "auto";
+    updateCopilotSend();
+    sendCopilotMessage(text);
+  }
+});
+
+document.getElementById("copilot-chips").querySelectorAll(".chip").forEach(chip => {
+  chip.addEventListener("click", () => {
+    const text = chip.textContent;
+    sendCopilotMessage(text);
+  });
+});
+
+document.getElementById("copilot-back-btn").addEventListener("click", closeCopilot);
+document.getElementById("copilot-close-btn").addEventListener("click", closeCopilot);
+
+document.querySelectorAll(".open-copilot-btn").forEach(btn => {
+  btn.addEventListener("click", openCopilot);
+});
+
+// ── KNOWLEDGE BASE ────────────────────────────────────────────────────────────
+const KB_ARTICLES = [
+  {
+    id: 1,
+    icon: "😴",
+    category: "Symptoms",
+    title: "Persistent Fatigue — When Tiredness Becomes a Signal",
+    readTime: "4 min read",
+    summary: "Feeling tired after a long week is normal. But when fatigue persists for more than two weeks without an obvious cause, your body may be trying to tell you something important.",
+    content: [
+      "Feeling tired after a long week is normal. But when fatigue persists for more than two weeks without an obvious cause, your body may be trying to tell you something important. Persistent fatigue — the kind that doesn't improve with rest — can be a signal worth paying attention to.",
+      "Common causes range from iron deficiency and thyroid issues to sleep disorders, depression, or viral infections. In some cases, it may also indicate more serious conditions that benefit from early detection. The key distinction is duration and pattern: occasional tiredness is expected, but fatigue that disrupts your daily life consistently is not something to dismiss.",
+      "WHAT TO WATCH FOR: Fatigue combined with unexplained weight loss, night sweats, swollen lymph nodes, or difficulty breathing warrants prompt medical attention. If fatigue is your only symptom but has lasted more than a month, a basic blood panel can provide useful clarity.",
+      "WHAT YOU CAN DO: Track your energy levels across the day, note any patterns (worse in the morning vs. afternoon), and assess your sleep quality, hydration, and stress levels. This information will help your doctor significantly."
+    ]
+  },
+  {
+    id: 2,
+    icon: "⚖️",
+    category: "Symptoms",
+    title: "Unexplained Weight Changes — What Your Body Might Be Saying",
+    readTime: "4 min read",
+    summary: "Losing or gaining more than 5% of your body weight over 6–12 months without intentional changes in diet or exercise is considered clinically significant.",
+    content: [
+      "Losing or gaining more than 5% of your body weight over 6–12 months without intentional changes in diet or exercise is considered clinically significant. While weight naturally fluctuates, unexplained changes deserve attention.",
+      "Unintentional weight loss can be associated with thyroid overactivity, diabetes, digestive disorders, depression, or in some cases, certain cancers. Unexplained weight gain may point to thyroid underactivity, hormonal changes, fluid retention, or metabolic shifts.",
+      "WHAT TO WATCH FOR: Weight loss accompanied by fatigue, appetite changes, night sweats, or persistent cough should be evaluated by a doctor. Weight gain with swelling in the legs, shortness of breath, or fatigue may indicate heart or kidney issues.",
+      "WHAT YOU CAN DO: Keep a simple log of your weight over 4–6 weeks. Note any changes in appetite, bowel habits, or energy. Bring this record to your doctor — it gives them a clearer picture than memory alone."
+    ]
+  },
+  {
+    id: 3,
+    icon: "🩹",
+    category: "Symptoms",
+    title: "Understanding Pain — Acute vs. Chronic and When to Act",
+    readTime: "5 min read",
+    summary: "Pain is one of the body's most important communication tools. Understanding the difference between acute and chronic pain helps you respond appropriately.",
+    content: [
+      "Pain is one of the body's most important communication tools. Understanding the difference between acute and chronic pain helps you respond appropriately rather than either overreacting or ignoring something important.",
+      "Acute pain comes on suddenly and is usually tied to a specific cause — an injury, infection, or inflammation. It typically resolves as the underlying issue heals. Chronic pain persists for more than 3 months, sometimes long after the original cause has resolved, and may involve changes in how the nervous system processes signals.",
+      "WHAT TO WATCH FOR: Pain that is severe, sudden, or accompanied by other symptoms (fever, unexplained weight loss, neurological changes) should be evaluated promptly. Pain that wakes you from sleep, doesn't respond to over-the-counter medication, or progressively worsens over weeks also warrants medical attention.",
+      "WHAT YOU CAN DO: When describing pain to a doctor, use the PQRST method — Provocation (what makes it better or worse), Quality (sharp, dull, burning), Region and Radiation, Severity (1–10 scale), and Timing (constant vs. intermittent). This structured description leads to faster, more accurate assessment."
+    ]
+  },
+  {
+    id: 4,
+    icon: "🫃",
+    category: "Symptoms",
+    title: "Digestive Changes — Listening to Your Gut",
+    readTime: "4 min read",
+    summary: "Changes in bowel habits, persistent bloating, or unexplained abdominal discomfort are signals that often get dismissed but rarely should be.",
+    content: [
+      "Your digestive system is surprisingly communicative. Changes in bowel habits, persistent bloating, blood in stool, or unexplained abdominal discomfort are signals that often get dismissed but rarely should be.",
+      "Occasional digestive upset is normal. But changes that persist for more than 2–3 weeks — especially alterations in stool frequency, consistency, or the presence of blood — deserve evaluation. Conditions like irritable bowel syndrome, inflammatory bowel disease, celiac disease, and colorectal cancer all have early digestive signals.",
+      "WHAT TO WATCH FOR: Blood in stool (red or black), persistent diarrhea or constipation lasting more than 3 weeks, unexplained abdominal pain, or a feeling of incomplete emptying should be discussed with a doctor. These symptoms don't always indicate serious disease, but they're worth ruling out.",
+      "WHAT YOU CAN DO: Keep a simple food and symptom diary for 2 weeks. Note what you eat, any digestive symptoms, and their timing. This pattern recognition is invaluable for diagnosis and helps distinguish food-related triggers from structural issues."
+    ]
+  },
+  {
+    id: 5,
+    icon: "🌙",
+    category: "Lifestyle",
+    title: "Sleep Quality — The Foundation of Everything Else",
+    readTime: "4 min read",
+    summary: "Sleep is not passive recovery — it's when your body repairs tissue, consolidates memory, regulates hormones, and clears metabolic waste from the brain.",
+    content: [
+      "Sleep is not passive recovery — it's when your body repairs tissue, consolidates memory, regulates hormones, and clears metabolic waste from the brain. Poor sleep quality has measurable effects on immune function, cardiovascular health, mental health, and cognitive performance.",
+      "The difference between quantity and quality matters. Seven hours of fragmented sleep is not equivalent to seven hours of restorative sleep. Common sleep disruptors include sleep apnea (often undiagnosed), anxiety, poor sleep hygiene, caffeine timing, and screen exposure before bed.",
+      "WHAT TO WATCH FOR: If you consistently wake unrefreshed, experience daytime sleepiness despite adequate hours, snore loudly, or your partner reports pauses in your breathing, sleep apnea is worth screening for. Untreated sleep apnea significantly increases cardiovascular risk.",
+      "WHAT YOU CAN DO: Prioritize sleep consistency (same bedtime and wake time daily), limit caffeine after 2pm, keep your bedroom cool and dark, and avoid screens 30 minutes before bed. If these changes don't help within 3–4 weeks, speak to your doctor about a sleep study."
+    ]
+  },
+  {
+    id: 6,
+    icon: "🧠",
+    category: "Lifestyle",
+    title: "Stress and Your Body — Recognizing the Physical Signals",
+    readTime: "4 min read",
+    summary: "Chronic stress is not just a mental state — it produces measurable physical changes that accumulate over time and contribute to a wide range of health conditions.",
+    content: [
+      "Chronic stress is not just a mental state — it produces measurable physical changes that accumulate over time and contribute to a wide range of health conditions. When the stress response activates repeatedly, it affects your heart, immune system, digestion, sleep, and hormonal balance.",
+      "Common physical manifestations of chronic stress include persistent muscle tension (especially neck and shoulders), headaches, digestive upset, elevated blood pressure, disrupted sleep, and reduced immune function. Many people normalize these signs and attribute them to being \"just busy\" rather than recognizing them as stress responses.",
+      "WHAT TO WATCH FOR: If you experience three or more physical stress symptoms simultaneously — such as headaches, sleep difficulty, digestive issues, and fatigue — for more than two weeks, it's worth discussing with a doctor. Chronic stress is also a risk factor that compounds the impact of other health conditions.",
+      "WHAT YOU CAN DO: Build a brief daily stress audit: rate your stress level each evening (1–10) and note the physical symptoms you felt that day. Within two weeks, patterns typically emerge that reveal your primary triggers. Even 10 minutes of daily structured relaxation — whether breathing exercises, walking, or mindfulness — produces measurable physiological changes."
+    ]
+  },
+  {
+    id: 7,
+    icon: "🏃",
+    category: "Lifestyle",
+    title: "Movement as Medicine — What the Research Actually Says",
+    readTime: "4 min read",
+    summary: "Physical activity is one of the most evidence-backed health interventions available — and the benefits extend well beyond weight management.",
+    content: [
+      "Physical activity is one of the most evidence-backed health interventions available — and the benefits extend well beyond weight management. Regular movement reduces the risk of cardiovascular disease, type 2 diabetes, certain cancers, depression, and cognitive decline. Even modest amounts have significant protective effects.",
+      "The research is clear: 150 minutes of moderate-intensity activity per week (about 22 minutes per day) is associated with a 30–35% reduction in all-cause mortality. Strength training twice a week adds further benefits for metabolic health and bone density. The key insight is consistency over intensity — a sustainable 20-minute daily walk is more valuable than occasional intense workouts.",
+      "WHAT TO WATCH FOR: Prolonged sedentary behavior (more than 8 hours of sitting daily) is independently associated with metabolic risk, even in people who exercise regularly. If your work is primarily sedentary, brief movement breaks every 60–90 minutes meaningfully offset this risk.",
+      "WHAT YOU CAN DO: Start with your current baseline and add 10% more activity per week rather than dramatic changes. \"Exercise snacking\" — 3 separate 10-minute walks — produces similar cardiovascular benefits to a single 30-minute walk. The best type of exercise is the one you'll actually do consistently."
+    ]
+  },
+  {
+    id: 8,
+    icon: "🛡️",
+    category: "Prevention",
+    title: "Cancer Screening — What to Do and When",
+    readTime: "5 min read",
+    summary: "Early detection is the single most powerful factor in cancer survival rates. Understanding which screenings apply to you — and at what age — is one of the most impactful things you can do for your long-term health.",
+    content: [
+      "Early detection is the single most powerful factor in cancer survival rates. Understanding which screenings apply to you — and at what age — is one of the most impactful things you can do for your long-term health. Most screening guidelines are based on age and risk factors, but many people are unaware of what applies to them.",
+      "Key screenings by age group: Cervical cancer screening (Pap smear) begins at age 21 for those with a cervix. Colorectal cancer screening begins at age 45 for average-risk individuals. Breast cancer mammography screening is typically recommended starting at age 40–50 depending on guidelines and risk factors. Lung cancer low-dose CT screening is recommended for heavy smokers aged 50–80. Prostate cancer (PSA) screening involves a shared decision with your doctor starting around age 50.",
+      "WHAT TO WATCH FOR: Family history significantly changes your screening timeline. If a first-degree relative was diagnosed with colorectal, breast, ovarian, or prostate cancer, discuss earlier screening with your doctor. The same applies to Lynch syndrome, BRCA gene mutations, and other hereditary risk factors.",
+      "WHAT YOU CAN DO: Make a list of your first-degree relatives' health history before your next doctor's appointment. Ask specifically: \"Which cancer screenings should I be having at my age?\" Annual wellness visits are the right time for this conversation — but don't wait if you have concerning symptoms."
+    ]
+  },
+  {
+    id: 9,
+    icon: "🩺",
+    category: "Doctor Visits",
+    title: "How to Talk to Your Doctor — Getting the Most from Every Visit",
+    readTime: "4 min read",
+    summary: "The average GP consultation lasts 10–15 minutes. Knowing how to prepare and communicate clearly can dramatically improve both the quality of care you receive and your own understanding of what's happening.",
+    content: [
+      "The average GP consultation lasts 10–15 minutes. Knowing how to prepare and communicate clearly can dramatically improve both the quality of care you receive and your own understanding of what's happening. Research shows that patients who prepare specific questions get more useful answers and feel more confident in their care.",
+      "Before your appointment: Write down your top 3 concerns in order of priority. Describe each symptom using duration, severity, and what makes it better or worse. Bring a list of current medications (including supplements). If relevant, note any family history of conditions related to your concern.",
+      "WHAT TO WATCH FOR: If you feel your concern was dismissed, it's appropriate to say: \"I want to make sure I understand — should I be monitoring this, and what would prompt me to come back?\" You are entitled to a clear follow-up plan. If you don't understand an explanation, asking for clarification is not wasting anyone's time.",
+      "WHAT YOU CAN DO: Use the framework: \"I've noticed [symptom] for [duration]. It [gets better/worse] when [context]. My main concern is [worry].\" This structure gives your doctor the most useful information in the least time, and signals that you're an engaged, observant patient — which tends to prompt more thorough responses."
+    ]
+  },
+  {
+    id: 10,
+    icon: "🔬",
+    category: "Doctor Visits",
+    title: "Understanding Blood Test Results — A Plain-Language Guide",
+    readTime: "5 min read",
+    summary: "Blood tests are among the most common diagnostic tools in medicine — but results often arrive with unfamiliar abbreviations and reference ranges that can feel confusing or alarming without context.",
+    content: [
+      "Blood tests are among the most common diagnostic tools in medicine — but results often arrive with unfamiliar abbreviations and reference ranges that can feel confusing or alarming without context. Understanding the basics helps you have more informed conversations with your doctor rather than either dismissing results or catastrophizing them.",
+      "Key panels and what they measure: A Complete Blood Count (CBC) assesses red blood cells, white blood cells, and platelets — flagging potential anemia, infection, or immune issues. A Comprehensive Metabolic Panel (CMP) checks kidney and liver function, blood sugar, and electrolytes. A Lipid Panel measures cholesterol fractions (LDL, HDL, triglycerides) related to cardiovascular risk. A Thyroid Stimulating Hormone (TSH) test screens thyroid function. HbA1c reflects average blood sugar over three months.",
+      "WHAT TO WATCH FOR: A result outside the reference range does not automatically mean disease — it means the value is statistically unusual and may warrant further investigation. Context matters enormously: a slightly low hemoglobin in a menstruating woman is interpreted differently than in a 65-year-old man. Always discuss out-of-range results with your doctor rather than interpreting them in isolation.",
+      "WHAT YOU CAN DO: Ask your doctor two specific questions for any abnormal result: \"Is this a trend or a one-time finding?\" and \"What would we do differently if this number were normal?\" These questions help distinguish clinically significant results from statistical outliers, and ensure you understand whether action is actually needed."
+    ]
+  }
+];
+
+let kbActiveCategory = "All";
+let kbSearchQuery = "";
+
+function openKB() {
+  kbActiveCategory = "All";
+  kbSearchQuery = "";
+
+  document.getElementById("kb-search").value = "";
+  document.querySelectorAll(".kb-tab").forEach(t => t.classList.toggle("active", t.dataset.cat === "All"));
+
+  document.getElementById("kb-overlay").classList.add("active");
+  document.body.style.overflow = "hidden";
+
+  renderKBList();
+}
+
+function closeKB() {
+  document.getElementById("kb-overlay").classList.remove("active");
+  document.body.style.overflow = "";
+}
+
+function renderKBList() {
+  const list = document.getElementById("kb-list");
+  const q = kbSearchQuery.toLowerCase().trim();
+
+  const filtered = KB_ARTICLES.filter(a => {
+    const matchesCat = kbActiveCategory === "All" || a.category === kbActiveCategory;
+    const matchesSearch = !q ||
+      a.title.toLowerCase().includes(q) ||
+      a.summary.toLowerCase().includes(q) ||
+      a.category.toLowerCase().includes(q) ||
+      a.content.some(p => p.toLowerCase().includes(q));
+    return matchesCat && matchesSearch;
+  });
+
+  if (filtered.length === 0) {
+    list.innerHTML = `
+      <div class="kb-empty">
+        <div class="kb-empty-icon">🔍</div>
+        <h3>No articles found</h3>
+        <p>Try a different search term or browse all categories.</p>
+      </div>`;
+    return;
+  }
+
+  list.innerHTML = filtered.map(a => buildKBCard(a)).join("");
+
+  // Re-attach open/close handlers
+  list.querySelectorAll(".kb-card-header").forEach(header => {
+    header.addEventListener("click", () => {
+      const card = header.closest(".kb-card");
+      const wasOpen = card.classList.contains("open");
+      list.querySelectorAll(".kb-card").forEach(c => c.classList.remove("open"));
+      if (!wasOpen) {
+        card.classList.add("open");
+        card.scrollIntoView({ behavior: "smooth", block: "nearest" });
+      }
+    });
+  });
+}
+
+function buildKBCard(a) {
+  const contentHtml = a.content.map(para => {
+    // Bold section headers like "WHAT TO WATCH FOR:"
+    const formatted = para.replace(/^([A-Z][A-Z\s]+:)/, "<strong>$1</strong>");
+    return `<p>${formatted}</p>`;
+  }).join("");
+
+  return `
+    <div class="kb-card" data-id="${a.id}">
+      <div class="kb-card-header">
+        <div class="kb-card-icon">${a.icon}</div>
+        <div class="kb-card-meta">
+          <div class="kb-card-cat">${escHtml(a.category)}</div>
+          <div class="kb-card-title">${escHtml(a.title)}</div>
+          <div class="kb-card-summary">${escHtml(a.summary)}</div>
+          <div class="kb-card-footer">
+            <span class="kb-read-time">⏱ ${escHtml(a.readTime)}</span>
+          </div>
+        </div>
+        <svg class="kb-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+          <polyline points="6 9 12 15 18 9"></polyline>
+        </svg>
+      </div>
+      <div class="kb-card-body">
+        <div class="kb-card-content">${contentHtml}</div>
+      </div>
+    </div>`;
+}
+
+// KB event listeners
+document.getElementById("kb-back-btn").addEventListener("click", closeKB);
+document.getElementById("kb-close-btn").addEventListener("click", closeKB);
+
+document.getElementById("kb-tabs").addEventListener("click", e => {
+  const tab = e.target.closest(".kb-tab");
+  if (!tab) return;
+  kbActiveCategory = tab.dataset.cat;
+  document.querySelectorAll(".kb-tab").forEach(t => t.classList.toggle("active", t === tab));
+  renderKBList();
+});
+
+document.getElementById("kb-search").addEventListener("input", function() {
+  kbSearchQuery = this.value;
+  renderKBList();
+});
+
+document.querySelectorAll(".open-kb-btn").forEach(btn => {
+  btn.addEventListener("click", openKB);
+});
+
+document.addEventListener("keydown", e => {
+  if (e.key === "Escape" && document.getElementById("kb-overlay").classList.contains("active")) {
+    closeKB();
+  }
+});
+</script>
+</body>
+</html>
